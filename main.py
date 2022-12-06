@@ -4,10 +4,6 @@ import sklearn as sk
 import matplotlib.pyplot as plt
 from sklearn.metrics.pairwise import cosine_similarity
 
-print (np.__version__)
-print (sk.__version__)
-print(plt.__version__)
-
 game_reviews_df = pd.read_csv('steam-200k.csv')
 
 clean_game_reviews_df = game_reviews_df.drop(['0', 'purchase'], axis=1)
