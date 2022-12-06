@@ -1,6 +1,3 @@
-asttokens @ file:///opt/conda/conda-bld/asttokens_1646925590279/work
-backcall @ file:///home/ktietz/src/ci/backcall_1611930011877/work
-Bottleneck @ file:///opt/conda/conda-bld/bottleneck_1657175564434/work
 certifi==2022.9.24
 click @ file:///tmp/build/80754af9/click_1646056590078/work
 cycler @ file:///tmp/build/80754af9/cycler_1637851556182/work
