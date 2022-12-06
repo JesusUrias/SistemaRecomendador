@@ -4,6 +4,10 @@ import sklearn as sk
 import matplotlib.pyplot as plt
 from sklearn.metrics.pairwise import cosine_similarity
 
+print (np.__version__)
+print (sk.__version__)
+print(plt.__version__)
+
 game_reviews_df = pd.read_csv('steam-200k.csv')
 
 clean_game_reviews_df = game_reviews_df.drop(['0', 'purchase'], axis=1)
@@ -12,7 +16,7 @@ clean_game_reviews_df = clean_game_reviews_df.rename({'151603712': 'User', 'The 
 matrix = clean_game_reviews_df.pivot_table(columns='Game', index='User', values='PlayTime', fill_value=0)
 matrix = matrix.dropna(thresh=5, axis=0)
 
-print(matrix)
+# print(matrix)
 
 def center(row):
     new_row = (row - row.mean()) / (row.max() - row.min())
