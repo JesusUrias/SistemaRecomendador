@@ -1,15 +1,7 @@
 certifi==2022.9.24
-click @ file:///tmp/build/80754af9/click_1646056590078/work
-cycler @ file:///tmp/build/80754af9/cycler_1637851556182/work
-Cython @ file:///opt/conda/conda-bld/cython_1663692770955/work
-debugpy @ file:///tmp/build/80754af9/debugpy_1637091799509/work
-decorator @ file:///opt/conda/conda-bld/decorator_1643638310831/work
-entrypoints @ file:///tmp/build/80754af9/entrypoints_1649926439650/work
-executing @ file:///opt/conda/conda-bld/executing_1646925071911/work
 Flask @ file:///tmp/abs_f02y1lyx6o/croots/recipe/flask_1658870763686/work
 Flask-Jsonpify==1.5.0
 fonttools==4.25.0
-importlib-metadata @ file:///tmp/build/80754af9/importlib-metadata_1648544546694/work
 ipykernel @ file:///opt/conda/conda-bld/ipykernel_1662361798230/work
 ipython @ file:///croot/ipython_1668088122043/work
 jupyter_client @ file:///croot/jupyter_client_1669040270237/work
