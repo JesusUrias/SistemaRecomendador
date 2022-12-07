@@ -9,15 +9,16 @@ game_reviews_df = pd.read_csv('steam-200k.csv')
 clean_game_reviews_df = game_reviews_df.drop(['0', 'purchase'], axis=1)
 clean_game_reviews_df = clean_game_reviews_df.rename({'151603712': 'User', 'The Elder Scrolls V Skyrim': 'Game', '1.0': 'PlayTime'}, axis=1)
 
+# hacemos una matriz con los juegos como columnas, los usuarios como indices y los valores entre ambos será el tiempo de juego
+# también llenamos los valores nulos con 0
 matrix = clean_game_reviews_df.pivot_table(columns='Game', index='User', values='PlayTime', fill_value=0)
-matrix = matrix.dropna(thresh=5, axis=0)
 
-# print(matrix)
-
+#funcion para centrar una matriz
 def center(row):
     new_row = (row - row.mean()) / (row.max() - row.min())
     return new_row
 
+#centramos la matriz para normalizar los datos 
 matrix_std = matrix.apply(center)
 
 def gameRec(game):
@@ -28,8 +29,8 @@ def gameRec(game):
     gameData = clean_game_reviews_df.groupby('Game').agg({'PlayTime': [np.size, np.mean]})
     #filtro que elimina los juegos jugados por menos de 100 usuarios.
     gameSim = gameData['PlayTime']['size'] >= 100
+    #juntamos la columna de similaridad del dataframe filtrado con el dataframe que tiene el resto de datos
     df = gameData[gameSim].join(pd.DataFrame(centered_matrix_values, columns=['similarity']), ['Game'])
-    df_descending = df.sort_values(['similarity'], ascending=False)[:6]
     return df.sort_values(['similarity'], ascending=False)[:6]
 
 print(gameRec("Borderlands 2"))
